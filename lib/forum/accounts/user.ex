@@ -1,11 +1,11 @@
 defmodule Forum.Accounts.User do
   use Ecto.Schema
   import Ecto.Changeset
-
+  alias Forum.Posts.Post
   schema "users" do
     field :name, :string
     field :email, :string
-
+    has_many :posts, Post
     timestamps(type: :utc_datetime)
   end
 
